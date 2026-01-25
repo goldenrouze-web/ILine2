@@ -9,7 +9,8 @@ Flask 2+
 SQLAlchemy 1.4+
 PyMySQL (для MySQL) или psycopg2-binary (для PostgreSQL)
 
-Структура проекта
+Структура проекта:
+
 employee_crm/
 ├── app.py
 ├── models.py
