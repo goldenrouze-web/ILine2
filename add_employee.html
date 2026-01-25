@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Добавить сотрудника</title>
+</head>
+<body>
+<h1>Добавить сотрудника</h1>
+
+<form method="post">
+  <p>ФИО: <input type="text" name="full_name" required></p>
+  <p>Должность:
+    <select name="position" required>
+      {% for pos in positions %}
+      <option value="{{ pos }}">{{ pos }}</option>
+      {% endfor %}
+    </select>
+  </p>
+  <p>Зарплата: <input type="number" name="salary" step="0.01" required></p>
+  <p>Дата приема: <input type="date" name="hire_date"></p>
+  <p>ID начальника: <input type="number" name="manager_id"></p>
+  <p><button type="submit">Добавить</button></p>
+</form>
+
+<p><a href="{{ url_for('employees') }}">Вернуться к списку</a></p>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul>
+      {% for category, message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+</body>
+</html>
